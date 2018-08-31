@@ -1,0 +1,12 @@
+﻿WINDOWS (LINUX)免費 白癡安裝 GIT SERVER [gitea]
+
+GITHUB : https://github.com/jash-git/WINDOWS-LINUX-GIT-SERVER-gitea-
+
+白癡安裝步驟:
+    01.把「WIN7實驗確定會動版本」CP 到 D槽 並更名為 「gitea」
+    02.把「gitea-master-windows-4.0-386.exe」更名為 「gitea.exe」
+    03.執行 「Run.bat」開啟服務
+    04.開啟 「http://localhost:3000/install」進行安裝
+        DB類型:sqlite3
+        DB路徑:D:\gitea\data\gitea.db
+        儲存庫的根目錄:D:/gitea/gitea-repositories

@@ -1,0 +1,44 @@
+/**
+ * SyntaxHighlighter
+ * http://alexgorbatchev.com/SyntaxHighlighter
+ *
+ * SyntaxHighlighter is donationware. If you are using it, please donate.
+ * http://alexgorbatchev.com/SyntaxHighlighter/donate.html
+ *
+ * @version
+ * 3.0.83 (July 02 2010)
+ * 
+ * @copyright
+ * Copyright (C) 2004-2010 Alex Gorbatchev.
+ *
+ * @license
+ * Dual licensed under the MIT and GPL licenses.
+ */
+;(function()
+{
+	// CommonJS
+	typeof(require) != 'undefined' ? SyntaxHighlighter = require('shCore').SyntaxHighlighter : null;
+
+	function Brush()
+	{
+	var operators	= 'REG_DWORD dword: REG_SZ REG_BINARY REG_EXPAND_SZ REG_MULTI_SZ';
+
+	this.regexList = [
+		{ regex: /;(.*)$/gm,							css: 'comments' },
+		{ regex: /\[(.*)\]/gm,							css: 'keyword' },
+		{ regex: /=/gm,								css: 'color1' },
+		{ regex: SyntaxHighlighter.regexLib.multiLineDoubleQuotedString,	css: 'string' },
+		{ regex: new RegExp(this.getKeywords(operators), 'gmi'),		css: 'color1' },
+		{ regex: /\\[\\0abtrn;#=:]/gmi,						css: 'color2' },
+		{ regex: /\\x[0-9,a-f]{2,4}/gmi,					css: 'color2' } 
+	];
+	};
+
+	Brush.prototype	= new SyntaxHighlighter.Highlighter();
+	Brush.aliases	= ['ini', 'reg'];
+
+	SyntaxHighlighter.brushes.Ini = Brush;
+
+	// CommonJS
+	typeof(exports) != 'undefined' ? exports.Brush = Brush : null;
+})();
