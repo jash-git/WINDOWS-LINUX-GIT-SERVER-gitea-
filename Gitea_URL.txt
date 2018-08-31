@@ -1,0 +1,5 @@
+﻿go 寫的 Gitea 跨平台免費開源。
+https://docs.gitea.io/zh-tw/
+
+下載位置：
+https://dl.gitea.io/gitea/
